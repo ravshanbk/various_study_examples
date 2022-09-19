@@ -1,10 +1,14 @@
-import 'package:exapmles/other_pages/objectbox_exapmple/obj_home_page.dart';
+import 'package:exapmles/other_pages/objectbox_exapmple/box/my_object_box.dart';
 import 'package:exapmles/routes/app_routes.dart';
 import 'package:exapmles/routes/rout_names.dart';
 import 'package:exapmles/services/navigator_service.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await MyObjectbox.init();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);

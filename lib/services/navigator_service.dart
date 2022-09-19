@@ -17,5 +17,9 @@ class NavigatorService {
         .pushNamedAndRemoveUntil(routeName, (route) => false);
   }
 
-  static void pop() => navigationKey.currentState!.pop();
+  static void pop() {
+    if (navigationKey.currentState!.canPop()) {
+      navigationKey.currentState!.pop();
+    }
+  }
 }

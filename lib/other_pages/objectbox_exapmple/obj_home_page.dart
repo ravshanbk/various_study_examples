@@ -1,21 +1,24 @@
 import 'dart:async';
 
 import 'package:exapmles/objectbox.g.dart';
+import 'package:exapmles/other_pages/objectbox_exapmple/box/my_object_box.dart';
 import 'package:exapmles/other_pages/objectbox_exapmple/models/shop_order.dart';
 import 'package:exapmles/other_pages/objectbox_exapmple/order_data_table.dart';
+import 'package:exapmles/routes/rout_names.dart';
+import 'package:exapmles/services/navigator_service.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart' as pp;
 import 'package:path/path.dart' as p;
 
-class ObjHomePage extends StatefulWidget {
-  const ObjHomePage({Key? key}) : super(key: key);
+class ObjectBoxNextPage extends StatefulWidget {
+  const ObjectBoxNextPage({Key? key}) : super(key: key);
 
   @override
-  State<ObjHomePage> createState() => _ObjHomePageState();
+  State<ObjectBoxNextPage> createState() => _ObjectBoxNextPageState();
 }
 
-class _ObjHomePageState extends State<ObjHomePage> {
+class _ObjectBoxNextPageState extends State<ObjectBoxNextPage> {
   final Faker faker = Faker();
   late Store _store;
   bool hasBeenInitialized = false;
@@ -25,28 +28,21 @@ class _ObjHomePageState extends State<ObjHomePage> {
   void initState() {
     super.initState();
     setNewCustomer();
-    pp.getApplicationDocumentsDirectory().then((dir) {
-      _store = Store(
-        getObjectBoxModel(),
-        directory: p.join(
-          dir.path,
-          "objectbox",
-        ),
-      );
-      setState(() {
-        _stream = _store
-            .box<ShopOrder>()
-            .query()
-            .watch(triggerImmediately: true)
-            .map((q) => q.find());
-        hasBeenInitialized = true;
-      });
+    _store = MyObjectbox.store;
+
+    setState(() {
+      _stream = _store
+          .box<ShopOrder>()
+          .query()
+          .watch(triggerImmediately: true)
+          .map((q) => q.find());
+      hasBeenInitialized = true;
     });
   }
 
   @override
   void dispose() {
-    _store.close();
+    // _store.close();
     super.dispose();
   }
 
@@ -104,6 +100,12 @@ class _ObjHomePageState extends State<ObjHomePage> {
 
   AppBar appBar() {
     return AppBar(
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+         NavigatorService.pushNamedAndRemoveUntil(RouteName.OBJECTBOX);
+        },
+      ),
       title: const Text("Object Box App"),
       actions: [
         IconButton(

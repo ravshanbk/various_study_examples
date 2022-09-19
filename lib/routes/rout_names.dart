@@ -5,6 +5,7 @@ class RouteName {
   static const String BARCODESCANNER = 'barcode_scanner';
   static const String CLIPPER = 'clipper';
   static const String OBJECTBOX = 'objectbox';
+  static const String OBJECTBOX_NEXT = 'objectbox_next';
   static const String SHELL = 'shell';
   static const String SLIDER = 'slider';
   static const String SOCKET_IO = 'socket_io';
