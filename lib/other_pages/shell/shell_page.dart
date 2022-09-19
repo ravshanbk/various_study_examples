@@ -39,7 +39,7 @@ class _ShellPageState extends State<ShellPage> {
                     try {
                       await dio.download(
                           "https://cashback.tiinco.uz/api/static/invanPosSetup_1_1_5_1_epos.exe",
-                          "${dir.path}/MMMMMMMYYYYYYYinvanPos.exe",
+                          "${dir.path}/MMMMMMMYYYYYYYYYYYYYYYYYYYYinvanPos.exe",
                           onReceiveProgress: (rec, total) {
                         print("Rec: $rec , Total: $total");
                       });
