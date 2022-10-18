@@ -1,3 +1,4 @@
+// ignore: library_prefixes
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 // flutter build apk --build-name=1.14 --build-number=14
@@ -17,13 +18,13 @@ class _SocketIoExamplePageState extends State<SocketIoExamplePagee> {
   late IO.Socket _socket;
   final TextEditingController _messageInputController = TextEditingController();
 
-  final List<dynamic> _list = [];
+  final List<dynamic> _listt = [];
   _sendMessage() {
     print("object");
     _socket.emit('msgToServer', _messageInputController.text.trim());
     _messageInputController.clear();
     setState(() {
-      print(_list.length);
+      print(_listt.length);
     });
   }
 
@@ -36,7 +37,7 @@ class _SocketIoExamplePageState extends State<SocketIoExamplePagee> {
       'msgToClient',
       (data) {
         print("MESSAGE TO CLIENT");
-        _list.add(data);
+        _listt.add(data);
         setState(() {});
         // Provider.of<HomeProvider>(context, listen: false).addNewMessage(data);
       },
@@ -45,7 +46,7 @@ class _SocketIoExamplePageState extends State<SocketIoExamplePagee> {
       'msgToRavshanbek',
       (data) {
         print("MESSAGE TO RAVSHANBEK");
-        _list.add(data);
+        _listt.add(data);
         setState(() {});
         // Provider.of<HomeProvider>(context, listen: false).addNewMessage(data);
       },
@@ -54,7 +55,7 @@ class _SocketIoExamplePageState extends State<SocketIoExamplePagee> {
       'msgToUmar',
       (data) {
         print("MESSAGE TO UMAR");
-        _list.add(data);
+        _listt.add(data);
         setState(() {});
         // Provider.of<HomeProvider>(context, listen: false).addNewMessage(data);
       },
@@ -82,9 +83,12 @@ class _SocketIoExamplePageState extends State<SocketIoExamplePagee> {
 
   @override
   Widget build(BuildContext context) {
-    List msgs = _list;
+    List msgs = _listt;
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(leading: IconButton(
+          icon:const  Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: const Text('Flutter Socket.IO'),
       ),
       body: Column(
@@ -93,9 +97,9 @@ class _SocketIoExamplePageState extends State<SocketIoExamplePagee> {
               child: ListView.builder(
             itemCount: msgs.length,
             itemBuilder: (context, index) {
-              String message = msgs[index];
+              String message = msgs.isNotEmpty? msgs[index].toString():"fsdfsdf";
               return Card(
-                child: Text(message.toString()),
+                child: Text(message),
               );
             },
           )),

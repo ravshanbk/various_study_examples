@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shell/shell.dart';
+// ignore: depend_on_referenced_packages
 import 'package:file/local.dart';
 
 class ShellPage extends StatefulWidget {
@@ -21,7 +22,12 @@ class _ShellPageState extends State<ShellPage> {
     const basePath = r"D:\ProgramData\InVanPos\cache\";
     // _readFile();
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -29,12 +35,9 @@ class _ShellPageState extends State<ShellPage> {
             children: [
               ElevatedButton(
                   onPressed: () async {
-                    Directory dir =
-                        Directory(r"D:");
+                    Directory dir = Directory(r"D:");
                     Dio dio = Dio();
-                    if (dir.path != null)
-                      print(
-                          "==================  dir is null  =================");
+                    print("==================  dir is null  =================");
 
                     try {
                       await dio.download(

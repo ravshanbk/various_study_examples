@@ -4,12 +4,9 @@ import 'package:exapmles/objectbox.g.dart';
 import 'package:exapmles/other_pages/objectbox_exapmple/box/my_object_box.dart';
 import 'package:exapmles/other_pages/objectbox_exapmple/models/shop_order.dart';
 import 'package:exapmles/other_pages/objectbox_exapmple/order_data_table.dart';
-import 'package:exapmles/routes/rout_names.dart';
-import 'package:exapmles/services/navigator_service.dart';
+
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart' as pp;
-import 'package:path/path.dart' as p;
 
 class ObjectBoxNextPage extends StatefulWidget {
   const ObjectBoxNextPage({Key? key}) : super(key: key);
@@ -49,7 +46,30 @@ class _ObjectBoxNextPageState extends State<ObjectBoxNextPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar:AppBar(
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.pop(context);
+          //  NavigatorService.pushNamedAndRemoveUntil(RouteName.OBJECTBOX);
+        },
+      ),
+      title: const Text("Object Box App"),
+      actions: [
+        IconButton(
+          onPressed: setNewCustomer,
+          icon: const Icon(
+            Icons.person_add_alt,
+          ),
+        ),
+        IconButton(
+          onPressed: addFakeOrderForCurrentCustomer,
+          icon: const Icon(
+            Icons.attach_money,
+          ),
+        ),
+      ],
+    ),
       body: !hasBeenInitialized
           ? _indecator("Store has not been initialized!")
           : StreamBuilder<List<ShopOrder>>(
@@ -98,31 +118,7 @@ class _ObjectBoxNextPageState extends State<ObjectBoxNextPage> {
     );
   }
 
-  AppBar appBar() {
-    return AppBar(
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () {
-         NavigatorService.pushNamedAndRemoveUntil(RouteName.OBJECTBOX);
-        },
-      ),
-      title: const Text("Object Box App"),
-      actions: [
-        IconButton(
-          onPressed: setNewCustomer,
-          icon: const Icon(
-            Icons.person_add_alt,
-          ),
-        ),
-        IconButton(
-          onPressed: addFakeOrderForCurrentCustomer,
-          icon: const Icon(
-            Icons.attach_money,
-          ),
-        ),
-      ],
-    );
-  }
+ 
 
   void setNewCustomer() {
     String name = faker.person.name();
