@@ -14,6 +14,10 @@ class _SliderExampleState extends State<SliderExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(leading: IconButton(
+          icon:const  Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),),
       body: Column(
         children: [
           MultiSliderPage(
@@ -23,10 +27,10 @@ class _SliderExampleState extends State<SliderExample> {
               colorX: Colors.amber,
               colorY: Colors.green,
               colorZ: Colors.red,
-              key: Key("multi slidible"),
+              key: const Key("multi slidible"),
               max: 100,
               min: 0,
-              size: Size(30, 50)),
+              size: const Size(30, 50)),
           RangeSlider(
               values: RangeValues(value, end),
               onChanged: (v) {

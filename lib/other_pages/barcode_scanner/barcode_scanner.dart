@@ -71,7 +71,15 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Barcode scan')),
+      appBar: AppBar(
+        leading: IconButton(
+          icon:const  Icon(
+            Icons.arrow_back,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: const Text('Barcode scan'),
+      ),
       body: Builder(
         builder: (BuildContext context) {
           return Container(
@@ -84,7 +92,8 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                     onPressed: () => scanBarcodeNormal(),
                     child: const Text('Start barcode scan')),
                 ElevatedButton(
-                    onPressed: () => scanQR(), child: const Text('Start QR scan')),
+                    onPressed: () => scanQR(),
+                    child: const Text('Start QR scan')),
                 ElevatedButton(
                     onPressed: () => startBarcodeScanStream(),
                     child: const Text('Start barcode scan stream')),

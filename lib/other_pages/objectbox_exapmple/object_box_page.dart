@@ -36,6 +36,12 @@ class _ObjectBoxExampleState extends State<ObjectBoxExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: Center(
           child: ElevatedButton(
         child: const Text("Go To The Next Page"),
