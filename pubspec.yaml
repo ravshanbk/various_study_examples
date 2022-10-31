@@ -32,10 +32,7 @@ dependencies:
   # graphql_flutter: ^5.1.0
   virtual_keyboard_flutter: ^1.0.0
   virtual_keyboard_multi_language: ^1.0.3
-<<<<<<< HEAD
   beamer: ^1.5.3
-=======
->>>>>>> 83e0c2277e98ae20fcd926daf3764271076f9054
   
 
 dev_dependencies:
