@@ -26,6 +26,7 @@ class Wrapper extends StatelessWidget {
           return ElevatedButton(
               key: Key(pageNames[__]),
               onPressed: () {
+               
                 NavigatorService.pushNamed(pageNames[__]);
               },
               child: Text(pageNames[__]));

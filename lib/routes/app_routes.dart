@@ -7,6 +7,7 @@ import 'package:exapmles/other_pages/mack_book_keyboard/mackbook_wrapper.dart';
 import 'package:exapmles/other_pages/objectbox_exapmple/obj_home_page.dart';
 import 'package:exapmles/other_pages/objectbox_exapmple/object_box_page.dart';
 import 'package:exapmles/other_pages/package_info_pluc_page.dart';
+import 'package:exapmles/other_pages/push_pop/first_page.dart';
 import 'package:exapmles/other_pages/shell/shell_page.dart';
 import 'package:exapmles/other_pages/slider/silider.dart';
 import 'package:exapmles/other_pages/socet_io/socet_io.dart';
@@ -65,6 +66,9 @@ class AppRoutes {
         return _route(MultiLanguageVirtualKeyboardPage());
       case RouteName.MACKBOOKKEYBOARD:
         return _route(const MacbookKeyboardApp());
+    
+      case RouteName.PUSHPOPEXAMPLE:
+        return _route(const PushPopExampleFirstPage());
     }
     return null;
   }
