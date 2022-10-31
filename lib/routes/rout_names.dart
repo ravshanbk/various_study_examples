@@ -17,7 +17,10 @@ class RouteName {
   static const String VERTUALKEYBOARD = "vertual_keyboard";
   static const String MULTILANGUAGEKEYBOARD = "multi_language_keyboard";
   static const String MACKBOOKKEYBOARD = "mackbook_keyboard";
+<<<<<<< HEAD
   static const String PUSHPOPEXAMPLE = "push_pop_example";
+=======
+>>>>>>> 83e0c2277e98ae20fcd926daf3764271076f9054
   static List<String> pageNames = const [
     BARCODESCANNER,
     CLIPPER,
@@ -33,6 +36,9 @@ class RouteName {
     VERTUALKEYBOARD,
     MULTILANGUAGEKEYBOARD,
     MACKBOOKKEYBOARD,
+<<<<<<< HEAD
     PUSHPOPEXAMPLE,
+=======
+>>>>>>> 83e0c2277e98ae20fcd926daf3764271076f9054
   ];
 }
