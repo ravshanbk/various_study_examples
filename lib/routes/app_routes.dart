@@ -11,6 +11,7 @@ import 'package:exapmles/other_pages/push_pop/first_page.dart';
 import 'package:exapmles/other_pages/shell/shell_page.dart';
 import 'package:exapmles/other_pages/slider/silider.dart';
 import 'package:exapmles/other_pages/socet_io/socet_io.dart';
+import 'package:exapmles/other_pages/sticky/sticky_page.dart';
 import 'package:exapmles/other_pages/virtual_keyboard/multi_language_keyboard.dart';
 import 'package:exapmles/other_pages/virtual_keyboard/virtual_keyboard.dart';
 import 'package:exapmles/other_pages/widgets/widgets_home.dart';
@@ -42,12 +43,25 @@ class AppRoutes {
       case RouteName.OBJECTBOX_NEXT:
         return _route(const ObjectBoxNextPage());
       case RouteName.FREEZED:
-        return _route(const FreezedExamplePage(
-            myClass: MyClass(balance: 123.0, id: 007, name: "Amir Temur")));
+        return _route(
+          const FreezedExamplePage(
+            myClass: MyClass(
+              balance: 123.0,
+              id: 007,
+              name: "Amir Temur",
+            ),
+          ),
+        );
       case RouteName.PACKAGEINFOPLUS:
         return _route(const PackageInfoPlusPage());
       case RouteName.WIDGETSHOME:
         return _route(const WidgetsHomePage());
+      case RouteName.StickyWidgetExample:
+        return _route(
+          const StickiyExample(
+            title: "Sticky Example Title",
+          ),
+        );
       case RouteName.NEWSPAGE:
         return _route(
           ChangeNotifierProvider(
@@ -66,7 +80,7 @@ class AppRoutes {
         return _route(MultiLanguageVirtualKeyboardPage());
       case RouteName.MACKBOOKKEYBOARD:
         return _route(const MacbookKeyboardApp());
-    
+
       case RouteName.PUSHPOPEXAMPLE:
         return _route(const PushPopExampleFirstPage());
     }

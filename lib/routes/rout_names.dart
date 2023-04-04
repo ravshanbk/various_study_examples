@@ -19,9 +19,10 @@ class RouteName {
   static const String MACKBOOKKEYBOARD = "mackbook_keyboard";
   static const String PUSHPOPEXAMPLE = "push_pop_example";
   static const String additionalRoutename = "additional route name";
-  static const String anotherAdditionalRoutename = " Another additional route name";
+  static const String anotherAdditionalRoutename =
+      " Another additional route name";
+  static const String StickyWidgetExample = "StickyWidgetExample";
 
-  
   static List<String> pageNames = const [
     BARCODESCANNER,
     CLIPPER,
@@ -38,5 +39,6 @@ class RouteName {
     MULTILANGUAGEKEYBOARD,
     MACKBOOKKEYBOARD,
     PUSHPOPEXAMPLE,
+    StickyWidgetExample,
   ];
 }

@@ -7,6 +7,7 @@ import 'package:exapmles/other_pages/objectbox_exapmple/order_data_table.dart';
 
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:objectbox/objectbox.dart';
 
 class ObjectBoxNextPage extends StatefulWidget {
   const ObjectBoxNextPage({Key? key}) : super(key: key);
@@ -21,6 +22,7 @@ class _ObjectBoxNextPageState extends State<ObjectBoxNextPage> {
   bool hasBeenInitialized = false;
   late Customer _customer;
   late Stream<List<ShopOrder>> _stream;
+
   @override
   void initState() {
     super.initState();
@@ -46,30 +48,30 @@ class _ObjectBoxNextPageState extends State<ObjectBoxNextPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.pop(context);
-          //  NavigatorService.pushNamedAndRemoveUntil(RouteName.OBJECTBOX);
-        },
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+            //  NavigatorService.pushNamedAndRemoveUntil(RouteName.OBJECTBOX);
+          },
+        ),
+        title: const Text("Object Box App"),
+        actions: [
+          IconButton(
+            onPressed: setNewCustomer,
+            icon: const Icon(
+              Icons.person_add_alt,
+            ),
+          ),
+          IconButton(
+            onPressed: addFakeOrderForCurrentCustomer,
+            icon: const Icon(
+              Icons.attach_money,
+            ),
+          ),
+        ],
       ),
-      title: const Text("Object Box App"),
-      actions: [
-        IconButton(
-          onPressed: setNewCustomer,
-          icon: const Icon(
-            Icons.person_add_alt,
-          ),
-        ),
-        IconButton(
-          onPressed: addFakeOrderForCurrentCustomer,
-          icon: const Icon(
-            Icons.attach_money,
-          ),
-        ),
-      ],
-    ),
       body: !hasBeenInitialized
           ? _indecator("Store has not been initialized!")
           : StreamBuilder<List<ShopOrder>>(
@@ -117,8 +119,6 @@ class _ObjectBoxNextPageState extends State<ObjectBoxNextPage> {
       ),
     );
   }
-
- 
 
   void setNewCustomer() {
     String name = faker.person.name();

@@ -63,22 +63,17 @@ class _VirtualKeyboardPageState extends State<VirtualKeyboardPage> {
             Container(
               color: Colors.deepPurple,
               child: VirtualKeyboard(
-               
                 fontSize: 33,
                 alwaysCaps: true,
                 key: const Key("fasgadf"),
-
-                
                 height: 300,
                 textColor: Colors.white,
                 type: isNumericMode
                     ? VirtualKeyboardType.Numeric
                     : VirtualKeyboardType.Alphanumeric,
                 textController: _controllerText,
-                defaultLayouts: const [
-                  
-                  VirtualKeyboardDefaultLayouts.Cyrillic,
-
+                defaultLayouts: [
+                  VirtualKeyboardDefaultLayouts.English,
                 ],
               ),
             )
