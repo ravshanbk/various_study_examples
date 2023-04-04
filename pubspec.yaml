@@ -33,6 +33,7 @@ dependencies:
   virtual_keyboard_flutter: ^1.0.0
   virtual_keyboard_multi_language: ^1.0.3
   beamer: ^1.5.3
+  measured_size: ^1.0.0
   
 
 dev_dependencies:

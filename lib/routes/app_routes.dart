@@ -2,6 +2,7 @@ import 'package:exapmles/models/my_class.dart';
 import 'package:exapmles/other_pages/barcode_scanner/barcode_scanner.dart';
 import 'package:exapmles/other_pages/clipper/clipper_example.dart';
 import 'package:exapmles/other_pages/freezed/freezed_example.dart';
+import 'package:exapmles/other_pages/get_widgets_size/get_widgets_size.dart';
 import 'package:exapmles/other_pages/graphql/graphql_page.dart';
 import 'package:exapmles/other_pages/mack_book_keyboard/mackbook_wrapper.dart';
 import 'package:exapmles/other_pages/objectbox_exapmple/obj_home_page.dart';
@@ -83,6 +84,8 @@ class AppRoutes {
 
       case RouteName.PUSHPOPEXAMPLE:
         return _route(const PushPopExampleFirstPage());
+      case RouteName.GetWidgetsSizeExample:
+        return _route(GetWidgetsSizeExample());
     }
     return null;
   }

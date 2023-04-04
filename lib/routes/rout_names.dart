@@ -22,6 +22,7 @@ class RouteName {
   static const String anotherAdditionalRoutename =
       " Another additional route name";
   static const String StickyWidgetExample = "StickyWidgetExample";
+  static const String GetWidgetsSizeExample = "GetWidgetsSizeExample";
 
   static List<String> pageNames = const [
     BARCODESCANNER,
@@ -40,5 +41,6 @@ class RouteName {
     MACKBOOKKEYBOARD,
     PUSHPOPEXAMPLE,
     StickyWidgetExample,
+    GetWidgetsSizeExample
   ];
 }
